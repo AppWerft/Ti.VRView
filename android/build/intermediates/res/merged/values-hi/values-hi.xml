@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	<string msgid="4600421777120114993" name="abc_action_bar_home_description">"मुख्यपृष्ठ पर नेविगेट करें"</string>
+	<string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+	<string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+	<string msgid="1594238315039666878" name="abc_action_bar_up_description">"ऊपर नेविगेट करें"</string>
+	<string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"अधिक विकल्प"</string>
+	<string msgid="4076576682505996667" name="abc_action_mode_done">"पूर्ण"</string>
+	<string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
+	<string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"कोई एप्‍लिकेशन चुनें"</string>
+	<string msgid="121134116657445385" name="abc_capital_off">"बंद"</string>
+	<string msgid="3405795526292276155" name="abc_capital_on">"चालू"</string>
+	<string msgid="7723749260725869598" name="abc_search_hint">"खोजा जा रहा है…"</string>
+	<string msgid="3691816814315814921" name="abc_searchview_description_clear">"क्‍वेरी साफ़ करें"</string>
+	<string msgid="2550479030709304392" name="abc_searchview_description_query">"खोज क्वेरी"</string>
+	<string msgid="8264924765203268293" name="abc_searchview_description_search">"खोजें"</string>
+	<string msgid="8928215447528550784" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
+	<string msgid="893419373245838918" name="abc_searchview_description_voice">"ध्वनि खोज"</string>
+	<string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"इसके द्वारा साझा करें"</string>
+	<string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s के साथ साझा करें"</string>
+	<string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"संक्षिप्त करें"</string>
+	<string msgid="146198913615257606" name="search_menu_title">"खोज"</string>
+	<string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+	<string name="back_button_content_description" msgid="233061162317617848">"वापस जाएं"</string>
+	<string name="cancel_button" msgid="2401572676578172896">"रहने दें"</string>
+	<string name="dialog_button_got_it" msgid="2482357845034618478">"समझ लिया"</string>
+	<string name="dialog_button_open_help_center" msgid="4505853433204459373">"सहायता केंद्र खोलें"</string>
+	<string name="dialog_message_incompatible_phone" msgid="4028688231551615655">"तिलिस्म के लिए तैयार फ़ोन चाहिए. अधिक जानकारी के लिए तिलिस्म सहायता केंद्र पर जाएं."</string>
+	<string name="dialog_message_no_cardboard" msgid="3560856374975640601">"अपना व्यूअर कॉन्फ़िगर करने के लिए कार्डबोर्ड ऐप्लिकेशन पाएं."</string>
+	<string name="dialog_title" msgid="7887077605817014784">"कॉन्फ़िगर करें"</string>
+	<string name="dialog_title_incompatible_phone" msgid="4515090705573059650">"असंगत फ़ोन"</string>
+	<string name="dialog_title_vr_core_not_enabled" msgid="2594928940370730859">"सेटअप आवश्यक है"</string>
+	<string name="dialog_title_vr_core_not_installed" msgid="6322165810291059770">"इंस्टॉल करना होगा"</string>
+	<string name="dialog_title_warning" msgid="455961049302726493">"चेतावनी"</string>
+	<string name="dialog_vr_core_not_enabled" msgid="1966424794507569244">"Google VR सेवाएं सक्षम किए बिना यह ऐप्लिकेशन संभवतः ठीक से काम न करे. जारी रखने से पहले कृपया इसे फ़ोन सेटिंग में सक्षम करें."</string>
+	<string name="dialog_vr_core_not_installed" msgid="7122144659930752678">"Google VR सेवाओं के बिना यह ऐप्लिकेशन संभवतः ठीक से काम न करे. जारी रखने से पहले कृपया Play स्टोर से Google VR सेवाएं इंस्टॉल करें."</string>
+	<string name="go_to_playstore_button" msgid="6145412853379876634">"Play स्टोर पर जाएं"</string>
+	<string name="go_to_vr_listeners_settings_button" msgid="6878752668266068283">"सेटिंग पर जाएं"</string>
+	<string name="no_browser_text" msgid="5324772199357788720">"वेबसाइट खोलने के लिए कोई ब्राउज़र नहीं"</string>
+	<string name="place_your_phone_into_cardboard" msgid="2306297166333705530">"अपने फ़ोन को अपने कार्डबोर्ड व्यूअर में रखें"</string>
+	<string name="place_your_viewer_into_viewer_format" msgid="5433369525545709510">"अपने फ़ोन को अपने <xliff:g id="VIEWER_NAME">%s</xliff:g> व्यूअर में रखें"</string>
+	<string name="settings_button_content_description" msgid="3719682527828378500">"सेटिंग"</string>
+	<string name="setup_button" msgid="20964482303479393">"सेट करें"</string>
+	<string name="switch_viewer_action" msgid="7856245902137004584">"बदलें"</string>
+	<string name="switch_viewer_prompt" msgid="816514297101696447">"दूसरा व्यूअर उपयोग कर रहे हैं?"</string>
+</resources>

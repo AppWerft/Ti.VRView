@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	<string msgid="4600421777120114993" name="abc_action_bar_home_description">"Navegar a la página principal"</string>
+	<string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+	<string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+	<string msgid="1594238315039666878" name="abc_action_bar_up_description">"Navegar hacia arriba"</string>
+	<string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Más opciones"</string>
+	<string msgid="4076576682505996667" name="abc_action_mode_done">"Listo"</string>
+	<string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
+	<string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Elige una aplicación."</string>
+	<string msgid="121134116657445385" name="abc_capital_off">"DESACTIVADO"</string>
+	<string msgid="3405795526292276155" name="abc_capital_on">"ACTIVADO"</string>
+	<string msgid="7723749260725869598" name="abc_search_hint">"Buscar…"</string>
+	<string msgid="3691816814315814921" name="abc_searchview_description_clear">"Eliminar la consulta"</string>
+	<string msgid="2550479030709304392" name="abc_searchview_description_query">"Búsqueda"</string>
+	<string msgid="8264924765203268293" name="abc_searchview_description_search">"Búsqueda"</string>
+	<string msgid="8928215447528550784" name="abc_searchview_description_submit">"Enviar consulta"</string>
+	<string msgid="893419373245838918" name="abc_searchview_description_voice">"Búsqueda por voz"</string>
+	<string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartir con"</string>
+	<string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Compartir con %s"</string>
+	<string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Contraer"</string>
+	<string msgid="146198913615257606" name="search_menu_title">"Buscar"</string>
+	<string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+	<string name="back_button_content_description" msgid="233061162317617848">"atrás"</string>
+	<string name="cancel_button" msgid="2401572676578172896">"Cancelar"</string>
+	<string name="dialog_button_got_it" msgid="2482357845034618478">"ENTENDIDO"</string>
+	<string name="dialog_button_open_help_center" msgid="4505853433204459373">"ABRIR EL CENTRO DE AYUDA"</string>
+	<string name="dialog_message_incompatible_phone" msgid="4028688231551615655">"Se requiere un teléfono compatible con Daydream. Visita el Centro de ayuda de Daydream para obtener más información."</string>
+	<string name="dialog_message_no_cardboard" msgid="3560856374975640601">"Obtén la app de Cardboard para configurar el visor."</string>
+	<string name="dialog_title" msgid="7887077605817014784">"Configurar"</string>
+	<string name="dialog_title_incompatible_phone" msgid="4515090705573059650">"Teléfono incompatible"</string>
+	<string name="dialog_title_vr_core_not_enabled" msgid="2594928940370730859">"Se requiere la configuración"</string>
+	<string name="dialog_title_vr_core_not_installed" msgid="6322165810291059770">"Se requiere la instalación"</string>
+	<string name="dialog_title_warning" msgid="455961049302726493">"Advertencia"</string>
+	<string name="dialog_vr_core_not_enabled" msgid="1966424794507569244">"Es posible que esta aplicación no funcione correctamente si no se habilitan los Servicios de RV de Google. Habilítalos en la configuración del teléfono antes de continuar."</string>
+	<string name="dialog_vr_core_not_installed" msgid="7122144659930752678">"Es posible que esta aplicación no funcione correctamente sin los Servicios de RV de Google. Instálalos desde Play Store antes de continuar."</string>
+	<string name="go_to_playstore_button" msgid="6145412853379876634">"Ir a Play Store"</string>
+	<string name="go_to_vr_listeners_settings_button" msgid="6878752668266068283">"Ir a Configuración"</string>
+	<string name="no_browser_text" msgid="5324772199357788720">"No hay ningún navegador para abrir el sitio web"</string>
+	<string name="place_your_phone_into_cardboard" msgid="2306297166333705530">"Coloca el teléfono en el visor Cardboard"</string>
+	<string name="place_your_viewer_into_viewer_format" msgid="5433369525545709510">"Coloca el teléfono en el visor <xliff:g id="VIEWER_NAME">%s</xliff:g>"</string>
+	<string name="settings_button_content_description" msgid="3719682527828378500">"configuración"</string>
+	<string name="setup_button" msgid="20964482303479393">"Configuración"</string>
+	<string name="switch_viewer_action" msgid="7856245902137004584">"Cambiar"</string>
+	<string name="switch_viewer_prompt" msgid="816514297101696447">"¿Deseas usar otro visor?"</string>
+</resources>

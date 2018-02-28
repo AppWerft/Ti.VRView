@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <ImageButton
+    style="@style/ControlButton"
+    android:id="@+id/fullscreen_back_button"
+    android:src="@drawable/quantum_ic_close_white_24"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"/>
+
+  <ImageButton
+    android:id="@+id/info_button"
+    style="@style/ControlButton"
+    android:src="@drawable/quantum_ic_info_white_24"
+    android:alpha="0.65"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentBottom="true"/>
+
+  <!-- Note that some layout settings are also adjusted in code to take care of fullscreen
+       mode in portrait orientation.
+  !-->
+  <LinearLayout
+    android:id="@+id/control_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true">
+
+    <ImageButton
+      style="@style/ControlButton"
+      android:id="@+id/vr_mode_button"
+      android:src="@drawable/quantum_ic_cardboard_white_24"/>
+
+    <ImageButton
+      style="@style/ControlButton"
+      android:id="@+id/fullscreen_button"
+      android:src="@drawable/quantum_ic_fullscreen_white_24"/>
+  </LinearLayout>
+</RelativeLayout>

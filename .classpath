@@ -7,13 +7,13 @@
 	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/7.0.1.GA/android/titanium.jar"/>
 	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/7.0.1.GA/android/kroll-common.jar"/>
 	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/7.0.1.GA/android/kroll-apt.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/video_1.120.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/base_1.120.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/common_1.120.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/pano_1.120.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/commonwidget_1.120.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/audio_1.120.jar"/>
-	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/libfolder/controler_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/video_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/base_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/common_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/pano_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/commonwidget_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/audio_1.120.jar"/>
+	<classpathentry kind="lib" path="/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/libfolder/controler_1.120.jar"/>
 	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/7.0.1.GA/android/modules/titanium-filesystem.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

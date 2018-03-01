@@ -85,8 +85,9 @@ Local<FunctionTemplate> PanoramaViewProxy::getProxyTemplate(Isolate* isolate)
 		FunctionTemplate::New(isolate, titanium::Proxy::inherit<PanoramaViewProxy>));
 
 	// Method bindings --------------------------------------------------------
-	titanium::SetProtoMethod(isolate, t, "stop", PanoramaViewProxy::stop);
-	titanium::SetProtoMethod(isolate, t, "start", PanoramaViewProxy::start);
+	titanium::SetProtoMethod(isolate, t, "resume", PanoramaViewProxy::resume);
+	titanium::SetProtoMethod(isolate, t, "destroy", PanoramaViewProxy::destroy);
+	titanium::SetProtoMethod(isolate, t, "pause", PanoramaViewProxy::pause);
 
 	Local<ObjectTemplate> prototypeTemplate = t->PrototypeTemplate();
 	Local<ObjectTemplate> instanceTemplate = t->InstanceTemplate();
@@ -105,9 +106,9 @@ Local<FunctionTemplate> PanoramaViewProxy::getProxyTemplate(Isolate* isolate)
 }
 
 // Methods --------------------------------------------------------------------
-void PanoramaViewProxy::stop(const FunctionCallbackInfo<Value>& args)
+void PanoramaViewProxy::resume(const FunctionCallbackInfo<Value>& args)
 {
-	LOGD(TAG, "stop()");
+	LOGD(TAG, "resume()");
 	Isolate* isolate = args.GetIsolate();
 	HandleScope scope(isolate);
 
@@ -118,9 +119,9 @@ void PanoramaViewProxy::stop(const FunctionCallbackInfo<Value>& args)
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
-		methodID = env->GetMethodID(PanoramaViewProxy::javaClass, "stop", "()V");
+		methodID = env->GetMethodID(PanoramaViewProxy::javaClass, "resume", "()V");
 		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'stop' with signature '()V'";
+			const char *error = "Couldn't find proxy method 'resume' with signature '()V'";
 			LOGE(TAG, error);
 				titanium::JSException::Error(isolate, error);
 				return;
@@ -155,9 +156,9 @@ void PanoramaViewProxy::stop(const FunctionCallbackInfo<Value>& args)
 	args.GetReturnValue().Set(v8::Undefined(isolate));
 
 }
-void PanoramaViewProxy::start(const FunctionCallbackInfo<Value>& args)
+void PanoramaViewProxy::destroy(const FunctionCallbackInfo<Value>& args)
 {
-	LOGD(TAG, "start()");
+	LOGD(TAG, "destroy()");
 	Isolate* isolate = args.GetIsolate();
 	HandleScope scope(isolate);
 
@@ -168,9 +169,59 @@ void PanoramaViewProxy::start(const FunctionCallbackInfo<Value>& args)
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
-		methodID = env->GetMethodID(PanoramaViewProxy::javaClass, "start", "()V");
+		methodID = env->GetMethodID(PanoramaViewProxy::javaClass, "destroy", "()V");
 		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'start' with signature '()V'";
+			const char *error = "Couldn't find proxy method 'destroy' with signature '()V'";
+			LOGE(TAG, error);
+				titanium::JSException::Error(isolate, error);
+				return;
+		}
+	}
+
+	Local<Object> holder = args.Holder();
+	// If holder isn't the JavaObject wrapper we expect, look up the prototype chain
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+
+	titanium::Proxy* proxy = NativeObject::Unwrap<titanium::Proxy>(holder);
+
+	jvalue* jArguments = 0;
+
+	jobject javaProxy = proxy->getJavaObject();
+	env->CallVoidMethodA(javaProxy, methodID, jArguments);
+
+	proxy->unreferenceJavaObject(javaProxy);
+
+
+
+	if (env->ExceptionCheck()) {
+		titanium::JSException::fromJavaException(isolate);
+		env->ExceptionClear();
+	}
+
+
+
+
+	args.GetReturnValue().Set(v8::Undefined(isolate));
+
+}
+void PanoramaViewProxy::pause(const FunctionCallbackInfo<Value>& args)
+{
+	LOGD(TAG, "pause()");
+	Isolate* isolate = args.GetIsolate();
+	HandleScope scope(isolate);
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(PanoramaViewProxy::javaClass, "pause", "()V");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'pause' with signature '()V'";
 			LOGE(TAG, error);
 				titanium::JSException::Error(isolate, error);
 				return;

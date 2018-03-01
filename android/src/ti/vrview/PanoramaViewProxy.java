@@ -52,9 +52,9 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	public boolean loadImageSuccessful;
 	private int type = VrviewModule.TYPE_MONO;
 	private static final int MSG_FIRST_ID = TiViewProxy.MSG_LAST_ID + 1;
-	private static final int MSG_START = MSG_FIRST_ID + 500;
-	private static final int MSG_STOP = MSG_FIRST_ID + 501;
-
+	private static final int MSG_RESUME = MSG_FIRST_ID + 500;
+	private static final int MSG_PAUSE = MSG_FIRST_ID + 501;
+	private static final int MSG_DESTROY = MSG_FIRST_ID + 502;
 	private static final String LCAT = "TiVR";
 
 	private ImageLoaderTask backgroundImageLoaderTask;
@@ -75,6 +75,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	private boolean touchTrackingEnabled = true;
 	private boolean transitionViewEnabled = false;
 	private int sensorDelay = SensorManager.SENSOR_DELAY_UI;
+	private boolean running = false;
 
 	private class PanoramaView extends TiUIView {
 		private Options panoOptions = new Options();
@@ -97,7 +98,8 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			panoWidgetView.setTouchTrackingEnabled(touchTrackingEnabled);
 			panoWidgetView.setTransitionViewEnabled(transitionViewEnabled);
 			sensorManager.registerListener(PanoramaViewProxy.this,
-					sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),sensorDelay);
+					sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+					sensorDelay);
 
 			panoWidgetView.setEventListener(new ActivityEventListener());
 			panoOptions.inputType = type;
@@ -123,15 +125,21 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		AsyncResult result = null;
 		switch (msg.what) {
 
-		case MSG_START: {
+		case MSG_RESUME: {
 			result = (AsyncResult) msg.obj;
-			handleStart();
+			handleResume();
 			result.setResult(null);
 			return true;
 		}
-		case MSG_STOP: {
+		case MSG_DESTROY: {
 			result = (AsyncResult) msg.obj;
-			handleStop();
+			handleDestroy();
+			result.setResult(null);
+			return true;
+		}
+		case MSG_PAUSE: {
+			result = (AsyncResult) msg.obj;
+			handlePause();
 			result.setResult(null);
 			return true;
 		}
@@ -141,34 +149,57 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		}
 	}
 
+	// Exposed methods:
 	@Kroll.method
-	public void start() {
+	public void pause() {
 		if (TiApplication.isUIThread()) {
-			handleStart();
+			handlePause();
 		} else {
 			TiMessenger.sendBlockingMainMessage(getMainHandler().obtainMessage(
-					MSG_START));
+					MSG_PAUSE));
 
 		}
 	}
 
-	private void handleStart() {
-		panoWidgetView.resumeRendering();
-	}
-
 	@Kroll.method
-	public void stop() {
+	public void resume() {
 		if (TiApplication.isUIThread()) {
-			handleStop();
+			handleResume();
 		} else {
 			TiMessenger.sendBlockingMainMessage(getMainHandler().obtainMessage(
-					MSG_STOP));
+					MSG_RESUME));
 
 		}
 	}
 
-	private void handleStop() {
+	@Kroll.method
+	public void destroy() {
+		if (TiApplication.isUIThread()) {
+			handleDestroy();
+		} else {
+			TiMessenger.sendBlockingMainMessage(getMainHandler().obtainMessage(
+					MSG_DESTROY));
+		}
+	}
+
+	private void handlePause() {
+		running = false;
+		Log.d(LCAT, "PAUSE PanoView");
 		panoWidgetView.pauseRendering();
+	}
+
+	private void handleDestroy() {
+		running = false;
+		Log.d(LCAT, "Destroy PanoView");
+		panoWidgetView.shutdown();
+		sensorManager.unregisterListener(PanoramaViewProxy.this);
+
+	}
+
+	private void handleResume() {
+		Log.d(LCAT, "RESUME PanoView");
+		panoWidgetView.resumeRendering();
+		running = true;
 	}
 
 	@Override
@@ -288,6 +319,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		 */
 		@Override
 		public void onLoadSuccess() {
+			running = true;
 			Log.d(LCAT, "VrPanoramaEventListener: success");
 			loadImageSuccessful = true;
 			if (onLoadCallback != null) {
@@ -308,12 +340,14 @@ public class PanoramaViewProxy extends TiViewProxy implements
 
 	@Override
 	public void onSensorChanged(SensorEvent sensorEvent) {
-		panoWidgetView.getHeadRotation(headRotation);
-		if (headRotationCallback != null) {
-			KrollDict dict = new KrollDict();
-			dict.put("yaw", headRotation[0]);
-			dict.put("pitch", headRotation[1]);
-			headRotationCallback.call(getKrollObject(), dict);
+		if (running) {
+			panoWidgetView.getHeadRotation(headRotation);
+			if (headRotationCallback != null && headRotationCallback instanceof KrollFunction) {
+				KrollDict dict = new KrollDict();
+				dict.put("yaw", headRotation[0]);
+				dict.put("pitch", headRotation[1]);
+				headRotationCallback.call(getKrollObject(), dict);
+			}
 		}
 	}
 

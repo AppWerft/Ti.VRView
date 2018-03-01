@@ -1,6 +1,6 @@
 # Ti.VRView
 
-It is a Titanium module for realizing of a VRPanoramaView and VRVideoView. Currently only the android version auf PanoramaView is realized.
+It is a Titanium module for realizing of a VRPanoramaView and VRVideoView. Currently only the android version auf PanoramaView and VideoView are realized.
 
 ## Equirectangular projections
 

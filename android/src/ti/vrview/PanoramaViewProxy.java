@@ -187,8 +187,8 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		if (opts.containsKeyAndNotNull(TiC.PROPERTY_TYPE)) {
 			type = opts.getInt(TiC.PROPERTY_TYPE);
 		}
-		if (opts.containsKeyAndNotNull("changed")) {
-			headRotationCallback = (KrollFunction) opts.get("changed");
+		if (opts.containsKeyAndNotNull("onchanged")) {
+			headRotationCallback = (KrollFunction) opts.get("onchanged");
 		}
 		if (opts.containsKeyAndNotNull("onload")) {
 			onLoadCallback = (KrollFunction) opts.get("onload");

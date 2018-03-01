@@ -112,9 +112,13 @@ Local<FunctionTemplate> VrviewModule::getProxyTemplate(Isolate* isolate)
 
 			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "TYPE_MONO", 1);
 
+			DEFINE_STRING_CONSTANT(isolate, prototypeTemplate, "ONCHANGED", "onchanged");
+
 			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "FORMAT_DEFAULT", 1);
 
 			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "SENSOR_DELAY_NORMAL", 3);
+
+			DEFINE_STRING_CONSTANT(isolate, prototypeTemplate, "ONLOAD", "onload");
 
 			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "SENSOR_DELAY_FASTEST", 0);
 

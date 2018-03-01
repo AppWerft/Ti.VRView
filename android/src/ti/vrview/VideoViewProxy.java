@@ -193,11 +193,11 @@ public class VideoViewProxy extends TiViewProxy implements
 		if (opts.containsKeyAndNotNull(TiC.PROPERTY_TYPE)) {
 			type = opts.getInt(TiC.PROPERTY_TYPE);
 		}
-		if (opts.containsKeyAndNotNull("changed")) {
-			headRotationCallback = (KrollFunction) opts.get("changed");
+		if (opts.containsKeyAndNotNull(VrviewModule.ONCHANGED)) {
+			headRotationCallback = (KrollFunction) opts.get(VrviewModule.ONCHANGED);
 		}
-		if (opts.containsKeyAndNotNull("onload")) {
-			onLoadCallback = (KrollFunction) opts.get("onload");
+		if (opts.containsKeyAndNotNull(VrviewModule.ONLOAD)) {
+			onLoadCallback = (KrollFunction) opts.get(VrviewModule.ONLOAD);
 		}
 		if (opts.containsKeyAndNotNull("fullscreenButtonEnabled")) {
 			fullscreenButtonEnabled = opts

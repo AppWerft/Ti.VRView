@@ -25,32 +25,32 @@ var win = Ti.UI.createWindow({
 var panoView = VR.createPanoramaView({
     type : VR.TYPE_MONO,
     image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg")),
-    onload : function() {},
-     onchange : function(e) {
+     onload : function() {},
+     onchanged : function(e) {
 	 		console.log(e.yaw);
 	 		console.log(e.pitch);
 	 },
 	 fullscreenButtonEnabled : false,
-    infoButtonEnabled : false,
-    stereoModeButtonEnabled : false,
-    touchTrackingEnabled : true,
-    transitionViewEnabled : false,
-    sensorDelay : VR.SENSOR_DELAY_NORMAL
+     infoButtonEnabled : false,
+     stereoModeButtonEnabled : false,
+     touchTrackingEnabled : true,
+     transitionViewEnabled : false,
+     sensorDelay : VR.SENSOR_DELAY_NORMAL
 });
 var videoView = VR.createVideoView({
-	 onchange : function(e) {
+	 onchanged : function(e) {
 	 		console.log(e.yaw);
 	 		console.log(e.pitch);
 	 }
 	 onload : function() {},
-    type : VR.TYPE_STEREO_OVER_UNDER,
-    format : VR.FORMAT_DEFAULT,
-    image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.mp4")),
-    fullscreenButtonEnabled : false,
-    infoButtonEnabled : false,
-    stereoModeButtonEnabled : false,
-    touchTrackingEnabled : true,
-    transitionViewEnabled : false
+     type : VR.TYPE_STEREO_OVER_UNDER,
+     format : VR.FORMAT_DEFAULT,
+     image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.mp4")),
+     fullscreenButtonEnabled : false,
+     infoButtonEnabled : false,
+     stereoModeButtonEnabled : false,
+     touchTrackingEnabled : true,
+     transitionViewEnabled : false
 });
 win.add(panoView);
 ```

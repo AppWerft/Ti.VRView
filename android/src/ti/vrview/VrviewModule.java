@@ -25,8 +25,12 @@ public class VrviewModule extends KrollModule {
 	final static int SENSOR_DELAY_NORMAL = SensorManager.SENSOR_DELAY_NORMAL;
 	@Kroll.constant
 	final static int SENSOR_DELAY_UI = SensorManager.SENSOR_DELAY_UI;
-   @Kroll.constant
+    @Kroll.constant
 	final static int SENSOR_DELAY_GAME = SensorManager.SENSOR_DELAY_GAME;
+    @Kroll.constant
+    final static String ONLOAD = "onload";
+    @Kroll.constant
+    final static String ONCHANGED = "onchanged";
 
 	public VrviewModule() {
         super();

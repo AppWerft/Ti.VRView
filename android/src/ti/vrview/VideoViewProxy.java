@@ -53,13 +53,15 @@ public class VideoViewProxy extends TiViewProxy implements
 	public boolean loadImageSuccessful;
 	private int type = VrviewModule.TYPE_MONO;
 	private static final int MSG_FIRST_ID = TiViewProxy.MSG_LAST_ID + 1;
-	private static final int MSG_START = MSG_FIRST_ID + 500;
-	private static final int MSG_STOP = MSG_FIRST_ID + 501;
+	
+	private static final int MSG_RESUME = MSG_FIRST_ID + 500;
+	private static final int MSG_PAUSE = MSG_FIRST_ID + 501;
+	private static final int MSG_DESTROY = MSG_FIRST_ID + 502;
 	public static final int LOAD_VIDEO_STATUS_UNKNOWN = 0;
-	  public static final int LOAD_VIDEO_STATUS_SUCCESS = 1;
-	  public static final int LOAD_VIDEO_STATUS_ERROR = 2;
+	public static final int LOAD_VIDEO_STATUS_SUCCESS = 1;
+	public static final int LOAD_VIDEO_STATUS_ERROR = 2;
 
-	  private int loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
+	private int loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
 	private static final String LCAT = "TiVR";
 
 	
@@ -73,7 +75,8 @@ public class VideoViewProxy extends TiViewProxy implements
 			.getApplicationContext();
 	private static SensorManager sensorManager = TiSensorHelper
 			.getSensorManager();
-
+	private Sensor sensor = sensorManager
+			.getDefaultSensor(Sensor.TYPE_ORIENTATION);
 	private float[] headRotation = new float[2];
 	private boolean fullscreenButtonEnabled = false;
 	private boolean infoButtonEnabled = false;
@@ -81,10 +84,10 @@ public class VideoViewProxy extends TiViewProxy implements
 	private boolean touchTrackingEnabled = true;
 	private boolean transitionViewEnabled = false;
 	private int sensorDelay = SensorManager.SENSOR_DELAY_UI;
-
+	private boolean running = false;
+	
 	private class VideoView extends TiUIView {
 		private Options videoOptions = new Options();
-
 		public VideoView(final TiViewProxy proxy) {
 			super(proxy);
 			this.proxy = proxy;
@@ -102,6 +105,8 @@ public class VideoViewProxy extends TiViewProxy implements
 			videoWidgetView.setFullscreenButtonEnabled(fullscreenButtonEnabled);
 			videoWidgetView.setTouchTrackingEnabled(touchTrackingEnabled);
 			videoWidgetView.setTransitionViewEnabled(transitionViewEnabled);
+			sensorManager.registerListener(VideoViewProxy.this, sensor,
+					sensorDelay);
 			sensorManager.registerListener(VideoViewProxy.this,
 					sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),sensorDelay);
 
@@ -128,16 +133,21 @@ public class VideoViewProxy extends TiViewProxy implements
 	public boolean handleMessage(Message msg) {
 		AsyncResult result = null;
 		switch (msg.what) {
-
-		case MSG_START: {
+		case MSG_RESUME: {
 			result = (AsyncResult) msg.obj;
-			handleStart();
+			handleResume();
 			result.setResult(null);
 			return true;
 		}
-		case MSG_STOP: {
+		case MSG_DESTROY: {
 			result = (AsyncResult) msg.obj;
-			handleStop();
+			handleDestroy();
+			result.setResult(null);
+			return true;
+		}
+		case MSG_PAUSE: {
+			result = (AsyncResult) msg.obj;
+			handlePause();
 			result.setResult(null);
 			return true;
 		}
@@ -148,35 +158,51 @@ public class VideoViewProxy extends TiViewProxy implements
 	}
 
 	@Kroll.method
-	public void start() {
+	public void resume() {
 		if (TiApplication.isUIThread()) {
-			handleStart();
+			handleResume();
 		} else {
 			TiMessenger.sendBlockingMainMessage(getMainHandler().obtainMessage(
-					MSG_START));
+					MSG_RESUME));
 
 		}
 	}
 
-	private void handleStart() {
+	private void handleResume() {
+		running = true;
 		videoWidgetView.resumeRendering();
 	}
-
 	@Kroll.method
-	public void stop() {
+	public void destroy() {
 		if (TiApplication.isUIThread()) {
-			handleStop();
+			handleDestroy();
 		} else {
 			TiMessenger.sendBlockingMainMessage(getMainHandler().obtainMessage(
-					MSG_STOP));
-
+					MSG_DESTROY));
+		}
+	}
+	@Kroll.method
+	public void pause() {
+		if (TiApplication.isUIThread()) {
+			handlePause();
+		} else {
+			TiMessenger.sendBlockingMainMessage(getMainHandler().obtainMessage(
+					MSG_PAUSE));
 		}
 	}
 
-	private void handleStop() {
+	private void handlePause() {
+		running = false;
 		videoWidgetView.pauseRendering();
 	}
-
+	
+	private void handleDestroy() {
+		running = false;
+		Log.d(LCAT, "DESTROY PanoView");
+		videoWidgetView.shutdown();
+		sensorManager.unregisterListener(VideoViewProxy.this);
+	}
+	
 	@Override
 	public TiUIView createView(Activity activity) {
 		Log.d(LCAT, "TiUIView createView");

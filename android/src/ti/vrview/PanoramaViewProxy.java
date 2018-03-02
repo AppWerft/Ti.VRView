@@ -67,7 +67,8 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			.getApplicationContext();
 	private static SensorManager sensorManager = TiSensorHelper
 			.getSensorManager();
-
+	private Sensor sensor = sensorManager
+			.getDefaultSensor(Sensor.TYPE_ORIENTATION);
 	private float[] headRotation = new float[2];
 	private boolean fullscreenButtonEnabled = false;
 	private boolean infoButtonEnabled = false;
@@ -83,6 +84,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		public PanoramaView(final TiViewProxy proxy) {
 			super(proxy);
 			this.proxy = proxy;
+			
 			Activity ctx = proxy.getActivity();
 			Log.d(LCAT,
 					"Start PanoramaView with " + fileUriOfPanoImage.toString());
@@ -97,8 +99,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			panoWidgetView.setFullscreenButtonEnabled(fullscreenButtonEnabled);
 			panoWidgetView.setTouchTrackingEnabled(touchTrackingEnabled);
 			panoWidgetView.setTransitionViewEnabled(transitionViewEnabled);
-			sensorManager.registerListener(PanoramaViewProxy.this,
-					sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+			sensorManager.registerListener(PanoramaViewProxy.this, sensor,
 					sensorDelay);
 
 			panoWidgetView.setEventListener(new ActivityEventListener());
@@ -190,7 +191,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 
 	private void handleDestroy() {
 		running = false;
-		Log.d(LCAT, "Destroy PanoView");
+		Log.d(LCAT, "DESTROY PanoView");
 		panoWidgetView.shutdown();
 		sensorManager.unregisterListener(PanoramaViewProxy.this);
 
@@ -342,7 +343,8 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	public void onSensorChanged(SensorEvent sensorEvent) {
 		if (running) {
 			panoWidgetView.getHeadRotation(headRotation);
-			if (headRotationCallback != null && headRotationCallback instanceof KrollFunction) {
+			if (headRotationCallback != null
+					&& headRotationCallback instanceof KrollFunction) {
 				KrollDict dict = new KrollDict();
 				dict.put("yaw", headRotation[0]);
 				dict.put("pitch", headRotation[1]);

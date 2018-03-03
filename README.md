@@ -20,12 +20,15 @@ OpenGL has strict texture size requirements acceptable image sizes:
 ## Usage
 
 ```javascript
+var image = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg");
+image.write(Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "pano.jpg").read());
+
 var VR = require("ti.vrview");
 var win = Ti.UI.createWindow({
 });
 var panoView = VR.createPanoramaView({
     type : VR.TYPE_MONO,
-    image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg")),
+    image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg"),
      onload : function() {},
      onchanged : function(e) {
 	 		console.log(e.yaw);

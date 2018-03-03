@@ -4,6 +4,7 @@ It is a Titanium module for realizing of a VRPanoramaView and VRVideoView. Curre
 
 
 <img src="https://i.ytimg.com/vi/H5F0ggHKZvU/maxresdefault.jpg" width=680 />
+
 ## Equirectangular projections
 
 OpenGL has strict texture size requirements acceptable image sizes:

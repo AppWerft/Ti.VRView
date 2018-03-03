@@ -20,6 +20,7 @@ import org.appcelerator.titanium.io.TiFileFactory;
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
 import org.appcelerator.titanium.util.TiSensorHelper;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -37,6 +38,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Message;
 import android.util.Pair;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
@@ -102,6 +105,17 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			sensorManager.registerListener(PanoramaViewProxy.this, sensor,
 					sensorDelay);
 			panoWidgetView.setEventListener(new ActivityEventListener());
+			panoWidgetView.setOnFocusChangeListener(new OnFocusChangeListener() {
+				@Override
+				public void onFocusChange(View view, boolean hasFocus) {
+					if (hasFocus) {
+						sensorManager.registerListener(PanoramaViewProxy.this, sensor,
+								sensorDelay);
+					} else {
+						sensorManager.unregisterListener(PanoramaViewProxy.this);
+					}
+				}
+				});
 			panoOptions.inputType = type;
 			if (backgroundImageLoaderTask != null) {
 				backgroundImageLoaderTask.cancel(true);

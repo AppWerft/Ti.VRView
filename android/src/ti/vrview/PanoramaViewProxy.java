@@ -84,7 +84,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		public PanoramaView(final TiViewProxy proxy) {
 			super(proxy);
 			this.proxy = proxy;
-			
+
 			Activity ctx = proxy.getActivity();
 			Log.d(LCAT,
 					"Start PanoramaView with " + fileUriOfPanoImage.toString());
@@ -101,7 +101,6 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			panoWidgetView.setTransitionViewEnabled(transitionViewEnabled);
 			sensorManager.registerListener(PanoramaViewProxy.this, sensor,
 					sensorDelay);
-
 			panoWidgetView.setEventListener(new ActivityEventListener());
 			panoOptions.inputType = type;
 			if (backgroundImageLoaderTask != null) {
@@ -125,7 +124,6 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	public boolean handleMessage(Message msg) {
 		AsyncResult result = null;
 		switch (msg.what) {
-
 		case MSG_RESUME: {
 			result = (AsyncResult) msg.obj;
 			handleResume();
@@ -186,6 +184,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	private void handlePause() {
 		running = false;
 		Log.d(LCAT, "PAUSE PanoView");
+		sensorManager.unregisterListener(PanoramaViewProxy.this);
 		panoWidgetView.pauseRendering();
 	}
 
@@ -200,6 +199,8 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	private void handleResume() {
 		Log.d(LCAT, "RESUME PanoView");
 		panoWidgetView.resumeRendering();
+		sensorManager.registerListener(PanoramaViewProxy.this, sensor,
+				sensorDelay);
 		running = true;
 	}
 
@@ -356,6 +357,5 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	@Override
 	public void onAccuracyChanged(Sensor arg0, int arg1) {
 		// TODO Auto-generated method stub
-
 	}
 }

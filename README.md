@@ -2,18 +2,18 @@
 
 It is a Titanium module for realizing of a VRPanoramaView and VRVideoView. Currently only the android version auf PanoramaView and VideoView are realized.
 
+
+<img src="https://i.ytimg.com/vi/H5F0ggHKZvU/maxresdefault.jpg" width=680 />
 ## Equirectangular projections
 
-OpenGL has strict texture size requirements
-
-acceptable image sizes:
+OpenGL has strict texture size requirements acceptable image sizes:
 
     4096 × 2048
     2048 × 1024
     1024 × 512
     512 × 256
     256 × 128
-    ... (any smaller power of 2)
+    … (any smaller power of 2)
 
 
 ## Usage

@@ -76,7 +76,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	private boolean fullscreenButtonEnabled = false;
 	private boolean infoButtonEnabled = false;
 	private boolean stereoModeButtonEnabled = false;
-	private boolean touchTrackingEnabled = true;
+	private boolean touchTrackingEnabled = false;
 	private boolean transitionViewEnabled = false;
 	private int sensorDelay = SensorManager.SENSOR_DELAY_UI;
 	private boolean running = false;
@@ -105,17 +105,20 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			sensorManager.registerListener(PanoramaViewProxy.this, sensor,
 					sensorDelay);
 			panoWidgetView.setEventListener(new ActivityEventListener());
-			panoWidgetView.setOnFocusChangeListener(new OnFocusChangeListener() {
-				@Override
-				public void onFocusChange(View view, boolean hasFocus) {
-					if (hasFocus) {
-						sensorManager.registerListener(PanoramaViewProxy.this, sensor,
-								sensorDelay);
-					} else {
-						sensorManager.unregisterListener(PanoramaViewProxy.this);
-					}
-				}
-				});
+			panoWidgetView
+					.setOnFocusChangeListener(new OnFocusChangeListener() {
+						@Override
+						public void onFocusChange(View view, boolean hasFocus) {
+							if (hasFocus) {
+								sensorManager.registerListener(
+										PanoramaViewProxy.this, sensor,
+										sensorDelay);
+							} else {
+								sensorManager
+										.unregisterListener(PanoramaViewProxy.this);
+							}
+						}
+					});
 			panoOptions.inputType = type;
 			if (backgroundImageLoaderTask != null) {
 				backgroundImageLoaderTask.cancel(true);
@@ -234,11 +237,12 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		if (opts.containsKeyAndNotNull(TiC.PROPERTY_TYPE)) {
 			type = opts.getInt(TiC.PROPERTY_TYPE);
 		}
-		if (opts.containsKeyAndNotNull("onchanged")) {
-			headRotationCallback = (KrollFunction) opts.get("onchanged");
+		if (opts.containsKeyAndNotNull(VrviewModule.ONCHANGED)) {
+			headRotationCallback = (KrollFunction) opts
+					.get(VrviewModule.ONCHANGED);
 		}
-		if (opts.containsKeyAndNotNull("onload")) {
-			onLoadCallback = (KrollFunction) opts.get("onload");
+		if (opts.containsKeyAndNotNull(VrviewModule.ONLOAD)) {
+			onLoadCallback = (KrollFunction) opts.get(VrviewModule.ONLOAD);
 		}
 		if (opts.containsKeyAndNotNull("fullscreenButtonEnabled")) {
 			fullscreenButtonEnabled = opts
@@ -251,8 +255,8 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			stereoModeButtonEnabled = opts
 					.getBoolean("stereoModeButtonEnabled");
 		}
-		if (opts.containsKeyAndNotNull("touchTrackingEnabled ")) {
-			touchTrackingEnabled = opts.getBoolean("touchTrackingEnabled ");
+		if (opts.containsKeyAndNotNull("touchTrackingEnabled")) {
+			touchTrackingEnabled = opts.getBoolean("touchTrackingEnabled");
 		}
 		if (opts.containsKeyAndNotNull("transitionViewEnabled")) {
 			transitionViewEnabled = opts.getBoolean("transitionViewEnabled");
@@ -352,6 +356,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			loadImageSuccessful = false;
 
 		}
+
 	}
 
 	@Override
@@ -364,8 +369,10 @@ public class PanoramaViewProxy extends TiViewProxy implements
 				dict.put("yaw", headRotation[0]);
 				dict.put("pitch", headRotation[1]);
 				headRotationCallback.call(getKrollObject(), dict);
-			}
-		}
+			} else
+				Log.i(LCAT, "after onSensorChanged no proxy to JS detected");
+		} else
+			Log.i(LCAT, "after onSensorChanged not running");
 	}
 
 	@Override

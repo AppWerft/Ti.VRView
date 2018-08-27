@@ -139,6 +139,10 @@ void PanoramaViewProxy::resume(const FunctionCallbackInfo<Value>& args)
 	jvalue* jArguments = 0;
 
 	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
 	env->CallVoidMethodA(javaProxy, methodID, jArguments);
 
 	proxy->unreferenceJavaObject(javaProxy);
@@ -189,6 +193,10 @@ void PanoramaViewProxy::destroy(const FunctionCallbackInfo<Value>& args)
 	jvalue* jArguments = 0;
 
 	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
 	env->CallVoidMethodA(javaProxy, methodID, jArguments);
 
 	proxy->unreferenceJavaObject(javaProxy);
@@ -239,6 +247,10 @@ void PanoramaViewProxy::pause(const FunctionCallbackInfo<Value>& args)
 	jvalue* jArguments = 0;
 
 	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
 	env->CallVoidMethodA(javaProxy, methodID, jArguments);
 
 	proxy->unreferenceJavaObject(javaProxy);

@@ -1,6 +1,6 @@
-/Users/fuerst/Documents/APPC_WORKSPACE/vrview/android/build/generated/obj/local/arm64-v8a/objs/ti.vrview/__/VrviewBootstrap.o: \
+/Users/fuerst/Documents/APPC_WORKSPACE/Ti.VRview/android/build/generated/obj/local/arm64-v8a/objs/ti.vrview/__/VrviewBootstrap.o: \
  jni/../VrviewBootstrap.cpp \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/v8.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/v8.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdio.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/memory \
@@ -30,14 +30,14 @@
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/climits \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/stdexcept \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__split_buffer \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/v8-version.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/v8config.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/AndroidUtil.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/v8-version.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/v8config.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/AndroidUtil.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdlib.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/JNIUtil.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/AndroidUtil.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/JSException.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/KrollBindings.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/JNIUtil.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/AndroidUtil.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/JSException.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/KrollBindings.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/map \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__tree \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/functional \
@@ -48,20 +48,20 @@
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cctype \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/ctype.h \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/V8Util.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/V8Util.h \
  jni/../BootstrapJS.cpp jni/../KrollGeneratedBindings.cpp \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/unordered_map \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__hash_table \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cmath \
  /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/math.h \
  jni/ti.vrview.PanoramaViewProxy.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/Proxy.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/JavaObject.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/EventEmitter.h \
- /Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/NativeObject.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/Proxy.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/JavaObject.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/EventEmitter.h \
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/NativeObject.h \
  jni/ti.vrview.VideoViewProxy.h jni/ti.vrview.VrviewModule.h
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/v8.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/v8.h:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdint.h:
 
@@ -121,21 +121,21 @@
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__split_buffer:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/v8-version.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/v8-version.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/v8config.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/v8config.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/AndroidUtil.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/AndroidUtil.h:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdlib.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/JNIUtil.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/JNIUtil.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/AndroidUtil.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/AndroidUtil.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/JSException.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/JSException.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/KrollBindings.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/KrollBindings.h:
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/map:
 
@@ -157,7 +157,7 @@
 
 /Users/fuerst/Library/Android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/wctype.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/V8Util.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/V8Util.h:
 
 jni/../BootstrapJS.cpp:
 
@@ -173,13 +173,13 @@ jni/../KrollGeneratedBindings.cpp:
 
 jni/ti.vrview.PanoramaViewProxy.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/Proxy.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/Proxy.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/JavaObject.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/JavaObject.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/EventEmitter.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/EventEmitter.h:
 
-/Library/Application\ Support/Titanium/mobilesdk/osx/7.0.1.GA/android/native/include/NativeObject.h:
+/Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/7.1.0.GA/android/native/include/NativeObject.h:
 
 jni/ti.vrview.VideoViewProxy.h:
 

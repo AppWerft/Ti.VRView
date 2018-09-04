@@ -49,7 +49,7 @@ var videoView = VR.createVideoView({
 	 onload : function() {},
      type : VR.TYPE_STEREO_OVER_UNDER,
      format : VR.FORMAT_DEFAULT,
-     image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.mp4")),
+     image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.mp4")).nativePath,
      fullscreenButtonEnabled : false,
      infoButtonEnabled : false,
      stereoModeButtonEnabled : false,

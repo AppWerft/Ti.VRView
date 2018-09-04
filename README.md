@@ -28,7 +28,7 @@ var win = Ti.UI.createWindow({
 });
 var panoView = VR.createPanoramaView({
     type : VR.TYPE_MONO,
-    image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg"),
+    image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg").nativePath,
      onload : function() {},
      onchanged : function(e) {
 	 		console.log(e.yaw);

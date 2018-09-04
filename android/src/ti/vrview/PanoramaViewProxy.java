@@ -62,7 +62,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 
 	private ImageLoaderTask backgroundImageLoaderTask;
 	private Uri fileUriOfPanoImage;
-	public VrPanoramaView panoWidgetView;
+	public VrPanoramaView vrPanoramaView;
 	KrollFunction headRotationCallback = null;
 	KrollFunction onLoadCallback = null;
 
@@ -95,17 +95,17 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			LinearLayout container = new LinearLayout(ctx);
 			container.setLayoutParams(new LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-			panoWidgetView = new VrPanoramaView(ctx);
+			vrPanoramaView = new VrPanoramaView(ctx);
 			// setting all params:
-			panoWidgetView.setInfoButtonEnabled(infoButtonEnabled);
-			panoWidgetView.setStereoModeButtonEnabled(stereoModeButtonEnabled);
-			panoWidgetView.setFullscreenButtonEnabled(fullscreenButtonEnabled);
-			panoWidgetView.setTouchTrackingEnabled(touchTrackingEnabled);
-			panoWidgetView.setTransitionViewEnabled(transitionViewEnabled);
+			vrPanoramaView.setInfoButtonEnabled(infoButtonEnabled);
+			vrPanoramaView.setStereoModeButtonEnabled(stereoModeButtonEnabled);
+			vrPanoramaView.setFullscreenButtonEnabled(fullscreenButtonEnabled);
+			vrPanoramaView.setTouchTrackingEnabled(touchTrackingEnabled);
+			vrPanoramaView.setTransitionViewEnabled(transitionViewEnabled);
 			sensorManager.registerListener(PanoramaViewProxy.this, sensor,
 					sensorDelay);
-			panoWidgetView.setEventListener(new ActivityEventListener());
-			panoWidgetView
+			vrPanoramaView.setEventListener(new ActivityEventListener());
+			vrPanoramaView
 					.setOnFocusChangeListener(new OnFocusChangeListener() {
 						@Override
 						public void onFocusChange(View view, boolean hasFocus) {
@@ -127,7 +127,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 			Log.d(LCAT, "Starting backgroundLoader");
 			backgroundImageLoaderTask.execute(Pair.create(fileUriOfPanoImage,
 					panoOptions));
-			container.addView(panoWidgetView);
+			container.addView(vrPanoramaView);
 			setNativeView(container);
 		}
 	}
@@ -202,20 +202,20 @@ public class PanoramaViewProxy extends TiViewProxy implements
 		running = false;
 		Log.d(LCAT, "PAUSE PanoView");
 		sensorManager.unregisterListener(PanoramaViewProxy.this);
-		panoWidgetView.pauseRendering();
+		vrPanoramaView.pauseRendering();
 	}
 
 	private void handleDestroy() {
 		running = false;
 		Log.d(LCAT, "DESTROY PanoView");
-		panoWidgetView.shutdown();
+		vrPanoramaView.shutdown();
 		sensorManager.unregisterListener(PanoramaViewProxy.this);
 
 	}
 
 	private void handleResume() {
 		Log.d(LCAT, "RESUME PanoView");
-		panoWidgetView.resumeRendering();
+		vrPanoramaView.resumeRendering();
 		sensorManager.registerListener(PanoramaViewProxy.this, sensor,
 				sensorDelay);
 		running = true;
@@ -320,7 +320,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 				return false;
 			}
 			Log.d(LCAT, "Start loadingImageFromBitmap");
-			panoWidgetView.loadImageFromBitmap(
+			vrPanoramaView.loadImageFromBitmap(
 					BitmapFactory.decodeStream(istr), panoOptions);
 			try {
 				istr.close();
@@ -362,18 +362,16 @@ public class PanoramaViewProxy extends TiViewProxy implements
 	@Override
 	public void onSensorChanged(SensorEvent sensorEvent) {
 		if (running) {
-			panoWidgetView.getHeadRotation(headRotation);
+			vrPanoramaView.getHeadRotation(headRotation);
 			if (headRotationCallback != null
 					&& headRotationCallback instanceof KrollFunction) {
 				KrollDict dict = new KrollDict();
 				dict.put("yaw", headRotation[0]);
 				dict.put("pitch", headRotation[1]);
 				headRotationCallback.call(getKrollObject(), dict);
-			} else
-				Log.i(LCAT, "after onSensorChanged no proxy to JS detected");
-		} else
-			Log.i(LCAT, "after onSensorChanged not running");
-	}
+			}
+		}
+    }
 
 	@Override
 	public void onAccuracyChanged(Sensor arg0, int arg1) {

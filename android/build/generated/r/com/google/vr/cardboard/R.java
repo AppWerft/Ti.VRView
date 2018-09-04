@@ -32,9 +32,11 @@ public final class R {
 		public static final int transition_switch_action = 0x7f0c00c0;
 		public static final int transition_text = 0x7f0c00bc;
 		public static final int transition_top_frame = 0x7f0c00ba;
-		public static final int ui_alignment_marker = 0x7f0c00c2;
-		public static final int ui_back_button = 0x7f0c00c1;
-		public static final int ui_settings_button = 0x7f0c00c3;
+		public static final int ui_alignment_marker = 0x7f0c00c3;
+		public static final int ui_back_button = 0x7f0c00c2;
+		public static final int ui_back_button_holder = 0x7f0c00c1;
+		public static final int ui_settings_button = 0x7f0c00c5;
+		public static final int ui_settings_button_holder = 0x7f0c00c4;
 	}
 	public static final class layout {
 		public static final int back_button = 0x7f03001b;

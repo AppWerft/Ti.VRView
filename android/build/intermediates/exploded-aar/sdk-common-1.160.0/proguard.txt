@@ -1,0 +1,19 @@
+# Proguard rules for commonly-shared libraries in gvr.
+
+# Note: this comes from //jcg/android/apps/common/proguard/annotations.flags
+# but cannot be used directly because it would require including a google3
+# Java dependency in VR Toolkit, which would break the gradle build.
+-keepattributes *Annotation*
+# Keep natively accessed methods used by Cardboard.
+# TODO(b/28564144): remove when the old UsedByNative annotation is removed.
+-keep class com.google.vr.cardboard.UsedByNative
+-keep @com.google.vr.cardboard.UsedByNative class *
+-keepclassmembers class * {
+    @com.google.vr.cardboard.UsedByNative *;
+}
+
+# These are part of the Java <-> native interfaces for GVR.
+-keepclasseswithmembernames,includedescriptorclasses class com.google.vr.** {
+    native <methods>;
+}
+

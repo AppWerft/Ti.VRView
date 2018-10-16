@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.appcelerator.kroll.KrollDict;
-import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.KrollFunction;
+import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.kroll.common.AsyncResult;
 import org.appcelerator.kroll.common.Log;
@@ -18,15 +18,10 @@ import org.appcelerator.titanium.io.TiBaseFile;
 import org.appcelerator.titanium.io.TiFile;
 import org.appcelerator.titanium.io.TiFileFactory;
 import org.appcelerator.titanium.proxy.TiViewProxy;
-import org.appcelerator.titanium.view.TiUIView;
 import org.appcelerator.titanium.util.TiSensorHelper;
+import org.appcelerator.titanium.view.TiUIView;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import ti.modules.titanium.filesystem.FileProxy;
-import ti.vrview.VrviewModule;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -43,7 +38,8 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
-import com.google.vr.sdk.widgets.pano.*;
+import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener;
+import com.google.vr.sdk.widgets.pano.VrPanoramaView;
 import com.google.vr.sdk.widgets.pano.VrPanoramaView.Options;
 
 @Kroll.proxy(creatableInModule = VrviewModule.class)
@@ -68,10 +64,13 @@ public class PanoramaViewProxy extends TiViewProxy implements
 
 	private static Context ctx = TiApplication.getInstance()
 			.getApplicationContext();
+	
 	private static SensorManager sensorManager = TiSensorHelper
 			.getSensorManager();
+	
 	private Sensor sensor = sensorManager
 			.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+	
 	private float[] headRotation = new float[2];
 	private boolean fullscreenButtonEnabled = false;
 	private boolean infoButtonEnabled = false;
@@ -124,7 +123,7 @@ public class PanoramaViewProxy extends TiViewProxy implements
 				backgroundImageLoaderTask.cancel(true);
 			}
 			backgroundImageLoaderTask = new ImageLoaderTask();
-			Log.d(LCAT, "Starting backgroundLoader");
+			
 			backgroundImageLoaderTask.execute(Pair.create(fileUriOfPanoImage,
 					panoOptions));
 			container.addView(vrPanoramaView);

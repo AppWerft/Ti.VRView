@@ -1,0 +1,14 @@
+
+dependencies {
+	// Add the module's library dependencies here.
+	// See:  https://developer.android.com/studio/build/dependencies
+
+	// Adds Google VR spatial audio support
+	compile 'com.google.vr:sdk-audio:1.160.0'
+
+	// Required for all Google VR apps
+	compile 'com.google.vr:sdk-base:1.160.0'
+	compile 'com.google.vr:sdk-panowidget:1.160.0'
+	compile 'com.google.vr:sdk-videowidget:1.160.0'
+
+}

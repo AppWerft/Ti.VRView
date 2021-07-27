@@ -20,43 +20,46 @@ OpenGL has strict texture size requirements acceptable image sizes:
 ## Usage
 
 ```javascript
+// place panorama in /app/assets/pano.jpg
 var image = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg");
 image.write(Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "pano.jpg").read());
 
 var VR = require("ti.vrview");
-var win = Ti.UI.createWindow({
-});
+var win = Ti.UI.createWindow({});
 var panoView = VR.createPanoramaView({
-    type : VR.TYPE_MONO,
-    image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.jpg").nativePath,
-     onload : function() {},
-     onchanged : function(e) {
-	 		console.log(e.yaw);
-	 		console.log(e.pitch);
-	 },
-	 fullscreenButtonEnabled : false,
-     infoButtonEnabled : false,
-     stereoModeButtonEnabled : false,
-     touchTrackingEnabled : true,
-     transitionViewEnabled : false,
-     sensorDelay : VR.SENSOR_DELAY_NORMAL
+	type: VR.TYPE_MONO,
+	image: image.nativePath,
+	onload: function() {},
+	onchanged: function(e) {
+		console.log(e.yaw);
+		console.log(e.pitch);
+	},
+	fullscreenButtonEnabled: false,
+	infoButtonEnabled: false,
+	stereoModeButtonEnabled: false,
+	touchTrackingEnabled: true,
+	transitionViewEnabled: false,
+	sensorDelay: VR.SENSOR_DELAY_NORMAL
 });
+
+// video
 var videoView = VR.createVideoView({
-	 onchanged : function(e) {
-	 		console.log(e.yaw);
-	 		console.log(e.pitch);
-	 }
-	 onload : function() {},
-     type : VR.TYPE_STEREO_OVER_UNDER,
-     format : VR.FORMAT_DEFAULT,
-     image : Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.mp4")).nativePath,
-     fullscreenButtonEnabled : false,
-     infoButtonEnabled : false,
-     stereoModeButtonEnabled : false,
-     touchTrackingEnabled : true,
-     transitionViewEnabled : false
+	onchanged: function(e) {
+		console.log(e.yaw);
+		console.log(e.pitch);
+	},
+	onload: function() {},
+	type: VR.TYPE_STEREO_OVER_UNDER,
+	format: VR.FORMAT_DEFAULT,
+	image: Ti.Filessystem.getFile(Ti.Filesystem.applicationDataDirectory, "pano.mp4").nativePath,
+	fullscreenButtonEnabled: false,
+	infoButtonEnabled: false,
+	stereoModeButtonEnabled: false,
+	touchTrackingEnabled: true,
+	transitionViewEnabled: false
 });
 win.add(panoView);
+win.open();
 ```
 
 ##  Constants

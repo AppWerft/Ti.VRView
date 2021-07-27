@@ -1,0 +1,39 @@
+
+27.7.2021, 14:24:07
+
+Operating System
+  Name                        = Fedora
+  Version                     = 34
+  Architecture                = 64bit
+  # CPUs                      = 12
+  Memory                      = 16367894528
+
+Node.js
+  Node.js Version             = 14.17.0
+  npm Version                 = 6.14.13
+
+Titanium CLI
+  CLI Version                 = 5.3.2
+
+Titanium SDK
+  SDK Version                 = 10.0.0.GA
+  SDK Path                    = /home/miga/.titanium/mobilesdk/linux/10.0.0.GA
+  Target Platform             = android
+
+Command
+  /usr/bin/node /usr/local/bin/ti clean
+
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/.gradle
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/build
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/build.gradle
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/build_android.log
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/gradle
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/gradle.properties
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/gradlew
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/gradlew.bat
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/local.properties
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/module
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/settings.gradle
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/build/ti.constants.gradle
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/dist
+[DEBUG]  Deleting /home/miga/tools/Ti.VRView/android/java-sources.txt

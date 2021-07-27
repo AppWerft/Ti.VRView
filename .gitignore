@@ -1,0 +1,13 @@
+ios/build
+ios/*.xcuserstate
+android/build
+android/libs
+android/example
+android/dist
+android/java-sources.txt
+android/build.properties
+.DS_Store
+ios/Cartfile.resolved
+ios/Carthage
+/android/.gradle
+/android/.settings/org.eclipse.buildship.core.prefs
